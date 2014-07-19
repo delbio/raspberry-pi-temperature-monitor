@@ -38,9 +38,9 @@ fi
 
 minute=6
 
-debug_command="cd $(pwd); sudo bash temp_monitor.sh ${db_config_file} ${recipient_file} ${limite} 2<&1 >> $(pwd)/debug-temp.txt"
+#debug_command="cd $(pwd); bash temp_monitor.sh ${db_config_file} ${recipient_file} ${limite} 2<&1 >> $(pwd)/debug-temp.txt"
 
-command="cd $(pwd); sudo bash temp_monitor.sh ${db_config_file} ${recipient_file} ${limite}"
+command="cd $(pwd); bash temp_monitor.sh ${db_config_file} ${recipient_file} ${limite}"
 job="*/${minute} * * * * ${command}"
 
 cat <(fgrep -i -v "$command" <(crontab -l)) <(echo "$job") | crontab -
