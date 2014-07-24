@@ -17,21 +17,62 @@ Seguire questa guida per l'installazione di MySQL su raspberry
 
 http://www.emcu.it/RaspBerryPi/RaspBerryPi.html#Installare%20il%20data%20base%20MySQL
   
-Usage
-=====
+Creazione di DB, Tabella e utente MySQL
+=======================================
+
 Eseguire i seguenti comandi per inizializzare il db e la tabella mysql
 
 	bash init_db.sh db-config-sample.cfg
 
-Se il programma mysql è installato, il terminale vi chiede se volete finalizzare l'inizializzazione del db, tabella e utente in mysql;
-Se rispondete no e mysql non è installato allora verrà salvato un file: db_import.sql che rappresenta i comandi da eseguire in mysql per inizializzare il sistema correttamente.
+Se il programma mysql è installato, il terminale vi chiede se volete finalizzare l'inizializzazione del db, tabella e utente in mysql.
+
+Se rispondete no o mysql non è installato allora verrà salvato un file: db_import.sql che rappresenta i comandi da eseguire in mysql per inizializzare il sistema correttamente.
+
 Se risposndente Y allora il terminale vi chiede le credenziali: user name e password per accedere a mysql e poter creare: db, tabella e un nuovo utente con tutti i privilegi sul nuovo database da creare.
+
+Potete controllare che tutto sia andato a buon fine entrando in mysql e digitando i seguenti comandi:
+
+	mysql -u rasp -p
+
+Eseguito l'accesso controllare che l'utente "rasp" abbia ottenuto i corretti privilegi:
+
+	SHOW GRANTS FOR rasp;
+	
+Il risultato sarà simile a questo:
+
++-------------------------------------------------------------------------------------------------------------+
+| Grants for rasp@localhost                                                                                   |
++-------------------------------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'rasp'@'localhost' IDENTIFIED BY PASSWORD '*A6EED5F04DF672C95534F0606B2A0398A49F882E' |
+| GRANT ALL PRIVILEGES ON `rasp_monitor`.* TO 'rasp'@'localhost'                                              |
++-------------------------------------------------------------------------------------------------------------+
+
+Per controllare la corretta costruzione della tabella "temperature":
+
+	USE rasp_monitor;
+	DESCRIBE temperature;
+	
++-------------+----------+------+-----+---------+----------------+
+| Field       | Type     | Null | Key | Default | Extra          |
++-------------+----------+------+-----+---------+----------------+
+| id          | int(11)  | NO   | PRI | NULL    | auto_increment |
+| time        | datetime | NO   |     | NULL    |                |
+| temperature | int(11)  | NO   |     | NULL    |                |
++-------------+----------+------+-----+---------+----------------+
+
+La configurazione di MySQL è terminata correttamente.
+
+Configurazione Notifica Via Email
+=================================
 
 Per notificare  il superamento della temperatura massima via mail ad un insieme di indirizzi email, creare un file con la lista di destinatari desiderati:
 
 	touch destinatari.txt
 	echo "email@dominio.it" >> destinatari.txt
 	echo "email1@dominio.com" >> destinatari.txt
+
+Automatizzazione via crontab
+=============================
 
 Il seguente script inizializzerà il crontab che, ogni 6 minuti, rileverà la temperatura, la salverà come record in una tabella e se la temperatura supera la soglia massima invia mail a tutti i destinatari:
 
