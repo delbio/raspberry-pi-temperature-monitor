@@ -38,27 +38,25 @@ Eseguito l'accesso controllare che l'utente "rasp" abbia ottenuto i corretti pri
 
 	SHOW GRANTS FOR rasp;
 	
-Il risultato sarà simile a questo:
-
-+-------------------------------------------------------------------------------------------------------------+
-| Grants for rasp@localhost                                                                                   |
-+-------------------------------------------------------------------------------------------------------------+
-| GRANT USAGE ON *.* TO 'rasp'@'localhost' IDENTIFIED BY PASSWORD '*A6EED5F04DF672C95534F0606B2A0398A49F882E' |
-| GRANT ALL PRIVILEGES ON `rasp_monitor`.* TO 'rasp'@'localhost'                                              |
-+-------------------------------------------------------------------------------------------------------------+
+    +------------------------------------------------------------------------+
+    | Grants for rasp@localhost                                              |
+    +------------------------------------------------------------------------+
+    | GRANT USAGE ON *.* TO 'rasp'@'localhost' IDENTIFIED BY PASSWORD 'pass' |
+    | GRANT ALL PRIVILEGES ON `rasp_monitor`.* TO 'rasp'@'localhost'         |
+    +------------------------------------------------------------------------+
 
 Per controllare la corretta costruzione della tabella "temperature":
 
 	USE rasp_monitor;
 	DESCRIBE temperature;
 	
-+-------------+----------+------+-----+---------+----------------+
-| Field       | Type     | Null | Key | Default | Extra          |
-+-------------+----------+------+-----+---------+----------------+
-| id          | int(11)  | NO   | PRI | NULL    | auto_increment |
-| time        | datetime | NO   |     | NULL    |                |
-| temperature | int(11)  | NO   |     | NULL    |                |
-+-------------+----------+------+-----+---------+----------------+
+    +-------------+----------+------+-----+---------+----------------+
+    | Field       | Type     | Null | Key | Default | Extra          |
+    +-------------+----------+------+-----+---------+----------------+
+    | id          | int(11)  | NO   | PRI | NULL    | auto_increment |
+    | time        | datetime | NO   |     | NULL    |                |
+    | temperature | int(11)  | NO   |     | NULL    |                |
+    +-------------+----------+------+-----+---------+----------------+
 
 La configurazione di MySQL è terminata correttamente.
 
