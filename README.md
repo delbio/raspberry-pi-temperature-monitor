@@ -1,7 +1,9 @@
 Monitor Raspberry Pi temperature
 ================================
 
-Ogni 6 minuti rileva la temperatura della raspberry e salva il record in una tabella, se la temperature supera una soglia massima, invia una email a ogni destinatario contenuto in un file
+Ogni 6 minuti monitora la temperatura della rasp e salva la rilevazione in una tabella mysql;
+salvata la rilevazione, contolla che il valore di temperatura non superi una soglia, definita dall'utente o default (65 °C) e nel caso venga superata, venie inviata una mail ad un insieme di mail.
+Il limite di temperatura della rasp sono 70 °C 
 
 Installazione di MySQL
 =======================
