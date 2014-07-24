@@ -29,7 +29,7 @@ Potete controllare che tutto sia andato a buon fine entrando in mysql e digitand
 
 Eseguito l'accesso controllare che l'utente "rasp" abbia ottenuto i corretti privilegi:
 
-	SHOW GRANTS FOR rasp;
+	SHOW GRANTS;
 	
     +------------------------------------------------------------------------+
     | Grants for rasp@localhost                                              |
