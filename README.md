@@ -1,14 +1,7 @@
 Monitor Raspberry Pi temperature
 ================================
 
-Ogni 6 minuti rileva la temperatura della raspberry e la salva il record in una tabella, se la temperature supera una soglia massima, invia una email a ogni destinatario contenuto in un file
-
-Configurazione di sendmail
-==========================
-
-Per configurare il comando sendmail, di modo che invii email a nome del vostro account gmail, seguite questa guida
-
-http://linuxconfig.org/configuring-gmail-as-sendmail-email-relay
+Ogni 6 minuti rileva la temperatura della raspberry e salva il record in una tabella, se la temperature supera una soglia massima, invia una email a ogni destinatario contenuto in un file
 
 Installazione di MySQL
 =======================
@@ -59,6 +52,14 @@ Per controllare la corretta costruzione della tabella "temperature":
     +-------------+----------+------+-----+---------+----------------+
 
 La configurazione di MySQL è terminata correttamente.
+
+Configurazione di sendmail
+==========================
+
+Per configurare il comando sendmail, di modo che invii email a nome del vostro account gmail, seguite questa guida
+
+http://linuxconfig.org/configuring-gmail-as-sendmail-email-relay
+
 
 Configurazione Notifica Via Email
 =================================
