@@ -17,12 +17,12 @@ function getTemp()
 
 function saveInMysql()
 {
-    echo "[ saveInMysql ] dati in ingresso ..."
-    echo "[ saveInMysql ] DB User: ${db_user}" >&2
-    echo "[ saveInMysql ] DB Pass: ${db_pass}" >&2
-    echo "[ saveInMysql ] DB Name: ${db_name}" >&2
-    echo "[ saveInMysql ] DB Table: ${table_name}" >&2
-    echo "[ saveInMysql ] Temp: ${temp}" >&2
+    #echo "[ saveInMysql ] dati in ingresso ..."
+    #echo "[ saveInMysql ] DB User: ${db_user}" >&2
+    #echo "[ saveInMysql ] DB Pass: ${db_pass}" >&2
+    #echo "[ saveInMysql ] DB Name: ${db_name}" >&2
+    #echo "[ saveInMysql ] DB Table: ${table_name}" >&2
+    #echo "[ saveInMysql ] Temp: ${temp}" >&2
 
     # http://stackoverflow.com/questions/592620/how-to-check-if-a-program-exists-from-a-bash-script
     if hash mysql 2>/dev/null; then
