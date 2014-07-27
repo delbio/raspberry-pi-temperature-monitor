@@ -89,3 +89,8 @@ Per Maggiori informazioni su crontab:
 
 http://guide.debianizzati.org/index.php/Utilizzo_del_servizio_di_scheduling_Cron#Stringhe_speciali
 http://it.wikipedia.org/wiki/Crontab
+
+Lavori correlati
+================
+
+http://rpy-italia.org/forum/index.php/topic,153.0.html
